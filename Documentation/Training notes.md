@@ -45,3 +45,6 @@ Use metrics like BLEU for text generation quality and FID for image quality.
 After training, save the model and tokenizer(A tokenizer is a fundamental component in natural language processing (NLP) and text processing tasks. It is responsible for breaking down a stream of text into smaller units called tokens. Tokens can be words, phrases, symbols, or other meaningful elements. The process of tokenization is crucial for many NLP tasks such as text analysis, language modeling, and machine learning applications.) to a directory.
 Use Hugging Face's transformers library to load the trained model for inference.
 Optionally, deploy the model using Hugging Face's Inference API for real-time applications.
+
+
+
