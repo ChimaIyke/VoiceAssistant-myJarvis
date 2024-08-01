@@ -46,5 +46,52 @@ After training, save the model and tokenizer(A tokenizer is a fundamental compon
 Use Hugging Face's transformers library to load the trained model for inference.
 Optionally, deploy the model using Hugging Face's Inference API for real-time applications.
 
+**Training a Neural Network Classifier with sklearn**
+
+The given code snippet demonstrates how to train a neural network classifier using scikit-learn's MLPClassifier. Here's a detailed explanation of each step:
+--Step 1:-- Import Necessary Libraries
+First, we import the necessary libraries from scikit-learn:
+from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
+
+--Step 2:-- Prepare the Dataset
+Assume you have your features (features) and labels (labels) already prepared. The features should be a 2D array (or DataFrame) where each row is an instance, and each column is a feature. The labels should be a 1D array (or Series) where each element corresponds to the label of the respective instance.
+
+--Step 3:-- Split the Dataset
+The dataset is split into training and validation sets using train_test_split. This is important to evaluate the performance of the model on unseen data.
+X_train, X_val, y_train, y_val = train_test_split(features, labels, test_size=0.2, random_state=42)
+features: The input data for the model.
+labels: The corresponding labels for the input data.
+test_size=0.2: This means 20% of the data will be used for validation, and 80% for training.
+random_state=42: This ensures reproducibility of the split.
+
+--Step 4:-- Define the Model
+An instance of MLPClassifier is created with specific parameters:
+model = MLPClassifier(hidden_layer_sizes=(512, 256), max_iter=1000)
+hidden_layer_sizes=(512, 256): This defines a neural network with two hidden layers, the first with 512 neurons and the second with 256 neurons.
+max_iter=1000: The maximum number of iterations the solver will use for training.
+
+--Step 5:-- Train the Model
+The model is trained on the training data using the fit method:
+model.fit(X_train, y_train)
+X_train: The training features.
+y_train: The training labels.
+
+--Step 6:-- Evaluate the Model
+The performance of the trained model is evaluated on the validation set:
+accuracy = model.score(X_val, y_val)
+print(f"Validation Accuracy: {accuracy}")
+X_val: The validation features.
+y_val: The validation labels.
+model.score(X_val, y_val): Computes the mean accuracy on the validation set.
+The accuracy is printed to show the performance of the model.
+**Summary**
+--Data Preparation:-- Ensure features and labels are ready.
+--Dataset Splitting:-- Split the dataset into training and validation sets.
+--Model Definition:-- Define an MLPClassifier with specified parameters.
+--Model Training:-- Train the model using the training data.
+--Model Evaluation:-- Evaluate the model on the validation set and print the accuracy.
+
+
 
 
